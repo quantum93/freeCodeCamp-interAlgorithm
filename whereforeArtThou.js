@@ -1,4 +1,4 @@
-function whatIsInAName(collection, source) {
+function whatIsInANameX(collection, source) {
   let srcKeys = Object.keys(source);
 
   return collection.filter((obj) => {
@@ -9,6 +9,20 @@ function whatIsInAName(collection, source) {
       }
     }
     return true;
+  });
+}
+/** return으로 true or false를 주면 다음과 같이 .every() 적용하는 것을 생각할 수 있다.
+ * 
+ */
+
+function whatIsInAName(collection, source) {
+  let srcKeys = Object.keys(source);
+
+  return collection.filter((obj) => {
+    return srcKeys.every((key) => {
+      console.log(obj[key], source[key]);
+      return obj.hasOwnProperty(key) && obj[key] === source[key];
+    });
   });
 }
 
