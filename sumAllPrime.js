@@ -1,22 +1,25 @@
 function sumPrimes(num) {
-  let primeSum = 0;
-  let prime = 1;
-
-  while (primeSum <= num) {
-    if (prime === 1 || prime === 2) {
-      primeSum += prime;
-    } else {
-      for(let i = 2; i < num; i++) {
-        if(prime%i === 0) {
-          return false
-        }
-        return primeSum += prime;
+  
+  function test_prime(n) {
+    if (n===1) { return false; }
+    else if(n === 2) { return true; }
+    else {
+      for(var x = 2; x < n; x++) {
+        if(n % x === 0) { return false; }
       }
+      return true;  
+    }
+  }
+
+  let primeSum = 0;
+    if(test_prime(num) === true) {
+      primeSum += num
     }
 
-  }
   return primeSum;
 }
 
-console.log(sumPrimes(10));
-console.log(sumPrimes(977));
+console.log(sumPrimes(7));
+// console.log(sumPrimes(977));
+
+// let arr = Array.from({length:num},(v,k)=>k+1);
