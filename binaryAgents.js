@@ -8,12 +8,14 @@ console.log(binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 0
 
 /**
  * 거의 비슷한 방식의 solution. 하지만 좀더 한꺼번에 처리하는 방식.
- * 때문에 변수 선언이 최소화된 접근
+ * 때문에 변수 선언이 최소화된 접근. 게다가 join도 필요없다.
+ * 최종 단계가 String.fromCharCode()이므로 ()안에서 binary string을 array로 그 array에서
+ * 각각 10진수로 한꺼번에 변환한다음 바로 인자로 넘기는 방식
  */
 
 function binaryAgent2(str) {
   return String.fromCharCode(
-    ...str.split(" ").map(function(char) {
+    ...str.split(" ").map(function(char) { // map을 두번쓰는 대신 ...으로 array를 전개
       return parseInt(char, 2);
     })
   );
