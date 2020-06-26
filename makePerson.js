@@ -1,6 +1,12 @@
-var Person = function(firstAndLast) {
-  let fullName = firstAndLast;
+/** get은 기존 argument로 설정된 결과를 얻는 과정이다.
+ * set은 새로운 argument로 기존 결과를 다시 선언하는 과정이다.
+ *
+ */
 
+var Person = function(firstAndLast) {
+  let fullName = firstAndLast; // argument를 내부 변수로 선언을 해줘야 한다.
+
+  
   this.getFullName = function() {
     return fullName;
   };
