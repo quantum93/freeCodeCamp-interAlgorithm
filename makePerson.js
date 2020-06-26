@@ -1,26 +1,26 @@
 var Person = function(firstAndLast) {
+  let fullName = firstAndLast;
 
   this.getFullName = function() {
-    return firstAndLast;
+    return fullName;
   };
   this.getFirstName = function() {
-    return firstAndLast.split(" ")[0];
+    return fullName.split(" ")[0];
   }
   this.getLastName = function() {
-    return firstAndLast.split(" ")[1];
+    return fullName.split(" ")[1];
   }
 
   this.setFirstName = function(first) {
-    firstAndLast = first + " " + firstAndLast.split(" ")[1];
+    fullName = first + " " + fullName.split(" ")[1];
   }
   this.setLastName = function(last) {
-    firstAndLast = firstAndLast.split(" ")[0] + " " + last;
+    fullName = fullName.split(" ")[0] + " " + last;
   }
-  this.setFullName = function(firstAndLast) {
-    firstAndLast = firstAndLast.split(" ")[0] + " " + firstAndLast.split(" ")[1];
+  this.setFullName = function(newName) {
+    fullName = newName;
   }
 
-  return firstAndLast;
 };
 
 var bob = new Person('Bob Ross');
@@ -29,4 +29,6 @@ console.log(bob.getFirstName());
 console.log(bob.getLastName());
 console.log(bob.getFullName());
 console.log(bob.setFirstName("Haskell"));
+console.log(bob.getFullName());
+console.log(bob.setFullName("Haskell Curry"));
 console.log(bob.getFullName());
