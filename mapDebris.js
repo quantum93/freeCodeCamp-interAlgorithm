@@ -2,14 +2,12 @@ function orbitalPeriod(arr) {
   const GM = 398600.4418;
   const earthRadius = 6367.4447;
 
-  for (let i = 0; i < arr.length; i++) {
-    const myObj = arr[i];
-    const myAlt = Object.values(arr[i])[1];
-    const myOrbital = Math.round(2 * Math.PI * Math.sqrt( Math.pow((earthRadius + myAlt), 3) / GM )) ;
-    return {name: myObj.name, orbitalPeriod: i.avgAlt}
-  };
-  //console.log(Object.keys(arr[0])[1], myObj.avgAlt)
-  //return arr;
+  const newArr = arr.map(obj => {
+    const myOrbital = Math.round(2 * Math.PI * Math.sqrt( Math.pow((earthRadius + obj.avgAlt), 3) / GM )) ;
+    obj.avgAlt = myOrbital;
+    return {name: obj.name, orbitalPeriod: obj.avgAlt};
+  }) 
+  return newArr;
 }
 
 console.log(orbitalPeriod([{name : "sputnik", avgAlt : 35873.5553}]));
